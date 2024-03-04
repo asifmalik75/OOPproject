@@ -1,0 +1,43 @@
+# Project: Oop_term_project
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o person.o fee.o attendance.o result.o school.o
+LINKOBJ  = main.o person.o fee.o attendance.o result.o school.o
+LIBS     = -L"D:/downloaded applications/2-Dev-Cpp/MinGW64/lib" -L"D:/downloaded applications/2-Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/downloaded applications/2-Dev-Cpp/MinGW64/include" -I"D:/downloaded applications/2-Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/downloaded applications/2-Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/downloaded applications/2-Dev-Cpp/MinGW64/include" -I"D:/downloaded applications/2-Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/downloaded applications/2-Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/downloaded applications/2-Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Oop_term_project.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+person.o: person.cpp
+	$(CPP) -c person.cpp -o person.o $(CXXFLAGS)
+
+fee.o: fee.cpp
+	$(CPP) -c fee.cpp -o fee.o $(CXXFLAGS)
+
+attendance.o: attendance.cpp
+	$(CPP) -c attendance.cpp -o attendance.o $(CXXFLAGS)
+
+result.o: result.cpp
+	$(CPP) -c result.cpp -o result.o $(CXXFLAGS)
+
+school.o: school.cpp
+	$(CPP) -c school.cpp -o school.o $(CXXFLAGS)
